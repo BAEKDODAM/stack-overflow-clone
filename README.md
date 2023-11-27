@@ -13,7 +13,7 @@
 |:--------:| :--------: | :--------: | :--------: |
 | <img src="https://github.com/hdwmumu/my-agora-states-practice/assets/121214030/44f73187-9a34-49e3-a0d3-7cd74b18bd44" alt="이기쁨" width="120" height="120">| <img src="https://github.com/codestates-seb/seb44_pre_004/assets/121214030/374ac993-2902-4d88-9ebd-04721cd365aa" alt="김리나" width="155" height="155"> | <img src="https://github.com/codestates-seb/seb44_pre_004/assets/121214030/47bb5c53-fe02-4ce1-b49c-992b88f24ec7" alt="백도담" width="130" height="130"> | <img src="https://github.com/codestates-seb/seb44_pre_004/assets/121214030/58d4df99-2ca8-4c0f-a7b4-68734803746f" alt="이명규" width="130" height="130"> | 
 |[@gibbeunLee](https://github.com/gibbeunLee) | [@LinaKK](https://github.com/LinaKK) | [@BAEKDODAM](https://github.com/BAEKDODAM) | [@myungkyulee](https://github.com/myungkyulee) | 
-| <p align="left">- answer CRUD  <br/>- Like <br/>- <br/>- <br/> | <p align="left">- JWT 자격 증명 <br/>- 회원 가임 <br/>- <br/>- <br/> | <p align="left">- 회원 정보 조회 <br/>- 회원 정보 수정 <br/>- 로그인(JWT) <br/> | <p align="left">- <br/>- <br/>- <br/>- <br/> | 
+| <p align="left">- answer CRUD  <br/>- Like  | <p align="left">- JWT 자격 증명 <br/>- 회원 가입 | <p align="left">- 회원 정보 조회 <br/>- 회원 정보 수정 <br/>- 로그인(JWT) <br/> | <p align="left">- | 
 
 
 ### Front-end
@@ -21,7 +21,7 @@
 | :--------: | :--------: | :--------: |
 | <img src="https://github.com/hdwmumu/my-agora-states-practice/assets/121214030/4a3d7705-82a6-499a-b493-d61eb7554484" alt="유지원" width="130" height="130"> | <img src="https://github.com/hdwmumu/my-agora-states-practice/assets/121214030/3aa80746-ff63-49b2-b5de-ad65574b0717" alt="김민기" width="130" height="130"> | <img src="https://github.com/hdwmumu/my-agora-states-practice/assets/121214030/4e853322-bd76-4fa4-a96c-3dc3ee9bdb0e" alt="허금희" width="160" height="160"> |
 | [@yyjjvv](https://github.com/yyjjvv) | [@alsrl1371](https://github.com/alsrl1371) | [@hdwmumu](https://github.com/hdwmumu) |
-| <p align="left">- 공통 컴포넌트 <br/>- 메인 (로그인 전, 후) <br/>- 마이페이지 사용자 정보 <br/>- 회원정보 수정/ 이미지 업로드 <br/>- 로그아웃 <br/>- Axios.interceptors <br/>|<p align="left">- 질문 리스트 페이지 <br/>- 질문 작성 페이지 <br/>- 질문 상세 페이지 <br/>- 질문 CRUD <br/>- 답변 CRUD <br/>- 댓글 CRUD <br/>- 질문, 답변 좋아요 기능 |<p align="left">- 회원가입 <br/>- 로그인 <br/>- <br/>- <br/>|
+| <p align="left">- 공통 컴포넌트 <br/>- 메인 (로그인 전, 후) <br/>- 마이페이지 사용자 정보 <br/>- 회원정보 수정/ 이미지 업로드 <br/>- 로그아웃 <br/>- Axios.interceptors <br/>|<p align="left">- 질문 리스트 페이지 <br/>- 질문 작성 페이지 <br/>- 질문 상세 페이지 <br/>- 질문 CRUD <br/>- 답변 CRUD <br/>- 댓글 CRUD <br/>- 질문, 답변 좋아요 기능 |<p align="left">- 회원가입 <br/>- 로그인 |
 
 <br/>
 
@@ -59,108 +59,30 @@
 <br/>
 
 ## API명세서
+
 | URL | URI | METHOD | 설명 | request body |
 | --- | --- | --- | --- | --- |
 | /main |  |  |  |  |
-| /user | /user/join | POST | 회원가입 | {
-email:
-name:
-password:
-} |
-|  | /user/login | POST | 로그인 | {
-username: 이메일값 들어감
-password:
-} |
+| /user | /user/join | POST | 회원가입 | {<br>email:<br>name:<br>password:<br>} |
+|  | /user/login | POST | 로그인 | {<br>username: 이메일값 들어감<br>password:<br>} |
 |  | /user/logout | POST | 로그아웃 | - |
 |  | /user/{memberId} | GET | 프로필 정보 조회 |  |
-|  | /user/edit/{memberId} | PATCH | 회원 정보 수정 | {
-name:
-title:
-aboutme:
-image:
-} |
-|  |  |  |  |  |
+|  | /user/edit/{memberId} | PATCH | 회원 정보 수정 | {<br>name:<br>title:<br>aboutme:<br>image:<br>} |
 | /qna | /qna/ | GET | 로그인 후 qna 페이지 |  |
-|  | /qna/question | POST | 질문 등록 | {
-title:
-content:
-} |
+|  | /qna/question | POST | 질문 등록 | {<br>title:<br>content:<br>} |
 |  | /qna/question/{questionId} | DELETE | 질문 삭제 |  |
 |  | /qna/question | GET | 질문 전체 조회 |  |
 |  | /qna/question/{questionId} | GET | 질문 단건 조회 |  |
-|  | /qna/question/{questionId} | PATCH | 질문 수정 | {
-title:
-content:
-} |
-|  | /qna/question/{questionId}/answer | POST | 답변 등록 | {
-content : 답변2-A
-} |
-|  | /qna/answer/{answerId} | PATCH | 답변 수정 | {
-content : 답변B
-} |
+|  | /qna/question/{questionId} | PATCH | 질문 수정 | {<br>title:<br>content:<br>} |
+|  | /qna/question/{questionId}/answer | POST | 답변 등록 | {<br>content : 답변2-A<br>} |
+|  | /qna/answer/{answerId} | PATCH | 답변 수정 | {<br>content : 답변B<br>} |
 |  | /qna/answer/{answerId} | DELETE | 답변 삭제 |  |
 |  | /qna/question/{questionId}/comment | POST | 질문 댓글 등록 |  |
 |  | /qna/answer/{answerId}/comment | POST | 답변 댓글 등록 |  |
 |  | /qna/comment/{commentId} | PATCH | 댓글 수정 |  |
 |  | /qna/comment/{commentId} | DELETE | 댓글 삭제 |  |
-|  | /qna/question/{questionId}/like | POST | 좋아요 질문 | {
-questionId: 2
-} |
-|  | /qna/answer/{answerId}/like | POST | 좋아요 답변 | {
-answerId: 1
-} |
-|  | /qna/question/{questionId}/like | DELETE | 좋아요 삭제 질문 |  |
-|  | /qna/answer/{answerId}/like | DELETE | 좋아요 삭제 답변 |  |
-
-| /main |  |  |  |  |
-| --- | --- | --- | --- | --- |
-| /user | /user/join | POST | 회원가입 | {
-email:
-name:
-password:
-} |
-|  | /user/login | POST | 로그인 | {
-username: 이메일값 들어감
-password:
-} |
-|  | /user/logout | POST | 로그아웃 | - |
-|  | /user/{memberId} | GET | 프로필 정보 조회 |  |
-|  | /user/edit/{memberId} | PATCH | 회원 정보 수정 | {
-name:
-title:
-aboutme:
-image:
-} |
-|  |  |  |  |  |
-| /qna | /qna/ | GET | 로그인 후 qna 페이지 |  |
-|  | /qna/question | POST | 질문 등록 | {
-title:
-content:
-} |
-|  | /qna/question/{questionId} | DELETE | 질문 삭제 |  |
-|  | /qna/question | GET | 질문 전체 조회 |  |
-|  | /qna/question/{questionId} | GET | 질문 단건 조회 |  |
-|  | /qna/question/{questionId} | PATCH | 질문 수정 | {
-title:
-content:
-} |
-|  | /qna/question/{questionId}/answer | POST | 답변 등록 | {
-content : 답변2-A
-} |
-|  | /qna/answer/{answerId} | PATCH | 답변 수정 | {
-content : 답변B
-} |
-|  | /qna/answer/{answerId} | DELETE | 답변 삭제 |  |
-|  | /qna/question/{questionId}/comment | POST | 질문 댓글 등록 |  |
-|  | /qna/answer/{answerId}/comment | POST | 답변 댓글 등록 |  |
-|  | /qna/comment/{commentId} | PATCH | 댓글 수정 |  |
-|  | /qna/comment/{commentId} | DELETE | 댓글 삭제 |  |
-|  | /qna/question/{questionId}/like | POST | 좋아요 질문 | {
-questionId: 2
-} |
-|  | /qna/answer/{answerId}/like | POST | 좋아요 답변 | {
-answerId: 1
-} |
+|  | /qna/question/{questionId}/like | POST | 좋아요 질문 | {<br>questionId: 2} |
+|  | /qna/answer/{answerId}/like | POST | 좋아요 답변 | {<br>answerId: 1<br>} |
 |  | /qna/question/{questionId}/like | DELETE | 좋아요 삭제 질문 |  |
 |  | /qna/answer/{answerId}/like | DELETE | 좋아요 삭제 답변 |  |
 
